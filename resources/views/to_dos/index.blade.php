@@ -38,9 +38,9 @@
             <button onclick="eliminarTodas()">Eliminar Todas las Tareas</button>
         </div>
         <div id="form" class="formulario" style="display: none;">
-            <form>
-                <input type="text" placeholder="Nombre de la Tarea">
-                <input type="checkbox"> Completada
+            <form id="formTarea" onsubmit="agregarTarea(event)">
+                <input type="text" placeholder="Nombre de la Tarea" id="nombreTarea">
+                <input type="checkbox" id="completadaTarea"> Completada
                 <input type="submit" value="Agregar">
             </form>
         </div>

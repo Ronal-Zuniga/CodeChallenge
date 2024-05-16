@@ -64,3 +64,35 @@ function marcar(checkbox, taskId) {
         checkbox.checked = !completada;
     });
 }
+
+function agregarTarea(event) {
+    event.preventDefault();
+
+    const nombreTarea = document.getElementById('nombreTarea').value;
+    const completadaTarea = document.getElementById('completadaTarea').checked;
+
+    fetch('/to_dos', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify({ description: nombreTarea, completed: completadaTarea })
+    })
+    .then(response => response.text())
+    .then(data => {
+        const container = document.querySelector('.container');
+        container.innerHTML = data;
+        document.getElementById('nombreTarea').value = '';
+        document.getElementById('completadaTarea').checked = false;
+        ocultarFormulario();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+function ocultarFormulario() {
+    const formulario = document.getElementById('form');
+    formulario.style.display = 'none';
+}

@@ -21,11 +21,12 @@ class ToDoController extends Controller
         ]);
 
         ToDo::create([
-            'description' => $request->name,
-            'completed' => false,
+            'description' => $request->description,
+            'completed' => $request->completed,
         ]);
 
-        return redirect()->route('to_dos.index');
+        $to_dos = ToDo::all();
+        return view('to_dos.index', compact('to_dos'));
     }
 
     public function destroy(ToDo $to_dos)
@@ -48,12 +49,11 @@ class ToDoController extends Controller
         $to_dos = ToDo::all();
         return view('to_dos.index', compact('to_dos'));
     }
-    
+
     public function destroyAll()
     {
         ToDo::truncate();
         $to_dos = ToDo::all();
         return view('to_dos.index', compact('to_dos'));
     }
-    
 }
