@@ -137,3 +137,53 @@ input[type="text"]:hover {
     transform: ease-out;
     transform: scale(1.1);
 }
+
+@media only screen and (max-width: 780px) {
+    .botones{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto;
+        align-items: center;
+    }
+
+    button{
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .formulario {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 40px;
+        margin: 0 auto;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+
+    form > input[type="text"], form > input[type="checkbox"], form > input[type="submit"] {
+        margin-bottom: 10px;
+        width: 80%;
+        margin: 0;
+    }
+
+    form > input[type="text"] {
+        margin-bottom: 20px;
+    }
+
+    form > input[type="submit"] {
+        margin-top: 20px;
+    }
+
+    form > input[type="checkbox"] {
+        margin-bottom: 10px;
+    }
+}
