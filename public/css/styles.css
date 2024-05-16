@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-image: linear-gradient(to right, #26B7FA, #7326FA);
 }
 
 .container {
@@ -12,24 +13,127 @@ body {
 
 h1 {
     text-align: center;
+    color: white;
+    font-size: 45px;
+}
+
+.tabla{
+    display: flex;
+    justify-content: center;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 80%;
     margin-top: 20px;
+    margin: 0 auto;
+    border: 2px solid white;
 }
 
 th, td {
     padding: 10px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
+    border: 1px solid #ddd;
+    text-align: center;
 }
 
 th {
     background-color: #f2f2f2;
 }
 
+td{
+    color: white;
+}
+
 td input[type="checkbox"] {
-    transform: scale(1.5); /* Aumentar el tamaño del checkbox */
+    transform: scale(1.5);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+td input[type="checkbox"]:hover, input[type="checkbox"]:hover {
+    transform: scale(1.7);
+}
+
+.botones{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 30px;
+    margin: 0 auto;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #E5D9F9;
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #D1C0F1;
+    transform: ease-out;
+    transform: scale(1.1);
+}
+
+.formulario{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 40px;
+    margin: 0 auto;
+}
+
+form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+form > input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: all 0.3s;
+}
+
+form > input[type="checkbox"] {
+    transform: scale(1.5);
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+form > input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #E5D9F9;
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    margin-left: 20px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border: 1px solid #013953;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+input[type="text"]:hover {
+    transform: ease-out;
+    transform: scale(1.1);
 }

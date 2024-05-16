@@ -10,8 +10,8 @@
 
 <body>
     <div class="container">
-        <h1>To-Dos</h1>
-        <div>
+        <h1>To-Do List</h1>
+        <div class="tabla">
             <table>
                 <thead>
                     <tr>
@@ -31,16 +31,16 @@
                 </tbody>
             </table>
         </div>
-        <div>
+        <div class="botones">
             <button>Agregar Tarea</button>
             <button>Eliminar Tareas Completadas</button>
             <button>Eliminar Todas las Tareas</button>
         </div>
-        <div id="form" style="display: none;">
+        <div id="form" class="formulario">
             <form>
                 <input type="text" placeholder="Nombre de la Tarea">
                 <input type="checkbox"> Completada
-                <button>Agregar</button>
+                <input type="submit" value="Agregar"> 
             </form>
         </div>
     </div>
