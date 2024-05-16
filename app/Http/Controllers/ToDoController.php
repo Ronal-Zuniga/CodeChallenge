@@ -10,10 +10,10 @@ class ToDoController extends Controller
     public function index()
     {
         $to_dos = ToDo::all();
-        
+
         return view('to_dos.index', compact('to_dos'));
     }
-    
+
     public function store(Request $request)
     {
         $request->validate([
@@ -35,18 +35,25 @@ class ToDoController extends Controller
         return redirect()->route('to_dos.index');
     }
 
+    public function toggleCompleted(ToDo $to_do)
+    {
+        $to_do->update(['completed' => !$to_do->completed]);
+        $to_dos = ToDo::all();
+        return view('to_dos.index', compact('to_dos'));
+    }
+
     public function deleteCompleted()
     {
         ToDo::where('completed', true)->delete();
-
-        return redirect()->route('to_dos.index');
+        $to_dos = ToDo::all();
+        return view('to_dos.index', compact('to_dos'));
     }
-
-    public function toggleCompleted(ToDo $to_dos)
-{
-    $to_dos->update(['completed' => !$to_dos->completed]);
-
-    return redirect()->route('to_dos.index');
-}
-
+    
+    public function destroyAll()
+    {
+        ToDo::truncate();
+        $to_dos = ToDo::all();
+        return view('to_dos.index', compact('to_dos'));
+    }
+    
 }

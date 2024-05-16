@@ -86,6 +86,8 @@ button:hover, input[type="submit"]:hover {
     justify-content: space-around;
     padding-top: 40px;
     margin: 0 auto;
+    transform: translateY(-20px);
+    transition: all 0.3s;
 }
 
 form{

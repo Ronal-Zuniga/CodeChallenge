@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Dos</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Code Challenge RJZ</title>
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
 
@@ -24,7 +25,7 @@
                     <tr>
                         <td>{{ $to_dos->description }}</td>
                         <td>
-                            <input type="checkbox" {{ $to_dos->completed ? 'checked' : '' }} enabled>
+                            <input type="checkbox" {{ $to_dos->completed ? 'checked' : '' }} onclick="marcar(this, {{ $to_dos->id }})">
                         </td>
                     </tr>
                     @endforeach
@@ -32,18 +33,19 @@
             </table>
         </div>
         <div class="botones">
-            <button>Agregar Tarea</button>
-            <button>Eliminar Tareas Completadas</button>
-            <button>Eliminar Todas las Tareas</button>
+            <button onclick="mostrarFormulario()">Agregar Tarea</button>
+            <button onclick="eliminarCompletadas()">Eliminar Tareas Completadas</button>
+            <button onclick="eliminarTodas()">Eliminar Todas las Tareas</button>
         </div>
-        <div id="form" class="formulario">
+        <div id="form" class="formulario" style="display: none;">
             <form>
                 <input type="text" placeholder="Nombre de la Tarea">
                 <input type="checkbox"> Completada
-                <input type="submit" value="Agregar"> 
+                <input type="submit" value="Agregar">
             </form>
         </div>
     </div>
     <script src="{{ asset('js/scripts.js') }}"></script>
 </body>
+
 </html>
